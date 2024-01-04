@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Event</title>
+</head>
+<body>
+
+<h2>Edit Event</h2>
+
+<form th:action="@{/edit}" th:object="${event}" method="post">
+    <input type="hidden" th:field="*{id}" /> <!-- Hidden input field for event ID -->
+    <label>Title: <input type="text" th:field="*{title}" /></label><br/>
+    <label>Description: <input type="text" th:field="*{description}" /></label><br/>
+    <label>Due Date: <input type="date" th:field="*{dueDate}" value="${#temporals.format(event.dueDate, 'yyyy-MM-dd')}" /></label><br/>
+    <label>Priority: <input type="number" th:field="*{priority}" /></label><br/>
+    <input type="submit" value="Save Changes"/>
+</form>
+
+</body>
+</html>
