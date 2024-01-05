@@ -1,0 +1,210 @@
+.header {
+    background-color: rgb(189, 105, 105);
+    color: #fff;
+    padding: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 36px;
+    border: 2px solid #000000;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Шрифт за целия документ */
+    margin: 0; /* Изчистване на външните отстъпи */
+    padding: 0; /* Изчистване на вътрешните отстъпи */
+    background: linear-gradient(to bottom, #f19c9c, #b07a7a); /* Фон с градиентен ефект */
+    color: #333; /* Цвят на текста */
+}
+
+#calendar {
+    max-width: 60%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 8px; /* Закръгленост на ръбовете */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: white;
+}
+
+.navigation {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-left: 20px; /* Разстояние до календара */
+    border-radius: 5px; /* Закръгленост на ръбовете */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.navigation button {
+    background-color: rgba(252, 27, 27, 0.57); /* Цвят на бутоните */
+    border: none; /* Премахване на граница */
+    border-radius: 5px; /* Закръгленост на ръбовете на бутоните */
+    color: #fff; /* Цвят на текста на бутоните */
+    padding: 8px 15px; /* Подходящ размер на падинг */
+    margin: 5px; /* Разстояние между бутоните */
+    cursor: pointer; /* Курсор при хофвър */
+    transition: background-color 0.3s ease; /* Плавна промяна на цвета на фона при хофвър */
+    text-decoration: none; /* Премахване на подчертаването на текста */
+}
+
+.navigation button a {
+    color: #fff; /* Цвят на текста на бутоните */
+    text-decoration: none; /* Премахване на подчертаването на текста */
+
+}
+
+.navigation button:hover {
+    background-color: rgba(187, 120, 120, 0.79); /* Цвят на бутоните при хофвър */
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+form {
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"][name="title"] {
+    width: 100%;
+    height: auto;
+}
+
+input[type="text"][name="description"] {
+    width: 100%;
+    height: 100px;
+}
+
+input[type="date"][name="dateDue"] {
+    width: 100%;
+    height: auto;
+}
+
+input[type="number"][name="priority"] {
+    width: 100%;
+    height: auto;
+}
+
+input[type="color"][name="themeColor"] {
+    width: 100%;
+    height: 40px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+    background-color: rgba(252, 27, 27, 0.57);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Стилове за таблицата */
+table.event-list-table {
+    width: 60%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    border-color: black;
+}
+
+/* Стилове за заглавните редове */
+table.event-list-table th {
+    background-color: #f2f2f2;
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+table.event-list-table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    word-wrap: break-word;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+table.event-list-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+
+.footer {
+    position: page;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #b07a7a;
+    color: #333;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    z-index: 1000; /* Настройте по-голяма стойност на z-index, за да бъде футърът най-отгоре */
+}
+a[href='/details/{id}'] {
+
+
+    /* Стилове за контейнера с детайлите на събитието */
+
+    div.details-container {
+        width: 50%;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    /* Стилове за параграфите с информация за събитието */
+
+    div.details-container p {
+        margin-bottom: 10px;
+    }
+
+    /* Стилове за бутоните за редактиране и изтриване */
+
+    div.details-container a button {
+        margin-right: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    /* Стилове за бутоните при хофване на мишката */
+
+    div.details-container a button:hover {
+        background-color: #45a049;
+    }
+}

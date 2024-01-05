@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Event</title>
+<head th:replace="~{fragments/commons::head}">
 </head>
+<header th:replace="~{fragments/commons::header}"></header>
 <body>
+<nav th:replace="~{fragments/commons::navigation}"></nav>
 
 <h2>Add Event</h2>
 
-<form th:action="@{/events/add}" th:object="${event}" method="post">
-  <label>Title: <input type="text" th:field="*{title}" /></label><br/>
-  <label>Description: <input type="text" th:field="*{description}" /></label><br/>
-  <label>Due Date: <input type="date" th:field="*{dueDate}" value="${#temporals.format(event.dueDate, 'yyyy-MM-dd')}" /></label><br/>
-  <label>Priority: <input type="number" th:field="*{priority}" /></label><br/>
-  <input type="submit" value="Add Event"/>
+<form th:action="@{/add}" th:object="${event}" method="post">
+    <label>Title: <input type="text" th:field="*{title}"/></label><br/>
+    <label>Description: <input type="text" th:field="*{description}"/></label><br/>
+    <label>Due Date: <input type="date" th:field="*{dueDate}"
+                            value="${#temporals.format(event.dueDate, 'yyyy-MM-dd')}"/></label><br/>
+    <label>Priority: <input type="number" th:min="1" th:max="6" th:field="*{priority}"/></label><br/>
+    <label>Color: <input type="color" value="#ffffff" th:field="*{themeColor}"></label><br/>
+    <input type="submit" value="Add Event"/>
 </form>
 
 </body>
+<footer th:replace="~{fragments/commons::footer}"></footer>
 </html>

@@ -1,50 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spring MVC Calendar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.js"></script>
+<head th:replace="~{fragments/commons::head}">
+    <title>Calendar Home</title>
 </head>
+
+<header th:replace="~{fragments/commons::header}"></header>
+
 <body>
+<nav th:replace="~{fragments/commons::navigation}"></nav>
 
-<nav>
-<div>
-    <ul class="left">
-        <li><a th:href="@{/events/}">Home</a></li>
-        <li><a th:href="@{/events/add}">Add EVENT</a></li>
-        <li><a th:href="@{/events/list}">View All EVENT</a></li>
-
-    </ul>
-</div>
-</nav>
-
-<h2>Event Calendar</h2>
-
-<div id="calendar"></div>
+<div id="calendar" ></div>
 
 <script th:inline="javascript">
     $(document).ready(function () {
         var events = /*[[${eventsJson}]]*/ []; // You need to convert your events to JSON format
-        console.log('Events:', events);
         $('#calendar').fullCalendar({
             events: events,
-            header: {
-                left: 'prev,next today',
+            header:{
+                left: 'prev,next',
                 center: 'title',
-                right: 'month'
+                right: 'today'
             },
             defaultView: 'month',
             eventClick: function (calEvent, jsEvent, view) {
-                // Handle event click if needed
-                alert('Event: ' + calEvent.title + ', Date: ' + calEvent.dueDate.format('YYYY-MM-DD'));
+                window.location.href = '/details/' + calEvent.id;
+            },
+            eventRender: function (event, element) {
+                element.css('background-color', event.themeColor);
+                element.css('color', '#ffffff');
             }
         });
     });
-</script>
 
+</script>
 </body>
+<footer th:replace="~{fragments/commons::footer}"></footer>
 </html>

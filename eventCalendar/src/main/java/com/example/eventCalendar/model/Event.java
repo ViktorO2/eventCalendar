@@ -18,6 +18,7 @@ public class Event {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dueDate;
     private int priority;
+    private String themeColor;
 
 
 //    @Transient
@@ -26,11 +27,12 @@ public class Event {
     public Event() {
     }
 
-    public Event(String title, String description, LocalDate dueDate, int priority) {
+    public Event(String title, String description, LocalDate dueDate, int priority, String themeColor) {
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
+        this.themeColor = themeColor;
     }
 
     public Long getId() {
@@ -73,15 +75,7 @@ public class Event {
         this.priority = priority;
     }
 
-//    public String getFormattedStartDate() {
-//        // Format LocalDate as String
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//        return dueDate.format(formatter);
-//    }
-//    public String getFormattedStartDate() {
-//        return formattedStartDate;
-//    }
-//    public void setFormattedStartDate(String formattedStartDate) {
-//        this.formattedStartDate = formattedStartDate;
-//    }
+    public String getThemeColor() {return themeColor;}
+
+    public void setThemeColor(String themeColor) {this.themeColor = themeColor;}
 }

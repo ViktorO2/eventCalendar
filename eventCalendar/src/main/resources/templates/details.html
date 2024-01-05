@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/commons::head">
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+<body>
+<nav th:replace="fragments/commons::navigation" ></nav>
+<h2>Details</h2>
+
+<div>
+    <p>Title: <span th:text="${event.title}"></span></p>
+    <p>Description: <span th:text="${event.description}"></span></p>
+    <p>Due Date: <span th:text="${event.dueDate}"></span></p>
+    <p>Priority: <span th:text="${event.priority}"></span></p>
+</div>
+
+<div>
+    <a th:href="@{'/edit/' + ${event.id}}"><button>Edit</button></a>
+    <a th:href="@{'/delete/' + ${event.id}}"><button>Delete</button></a>
+</div>
+</body>
+
+<footer th:replace="fragments/commons::footer" ></footer>
+</html>

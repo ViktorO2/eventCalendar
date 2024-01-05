@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EventService {
@@ -28,15 +29,21 @@ public class EventService {
 //        // Format date in each event
 //        events.forEach(event -> event.setDueDate(formatLocalDate(event.getDueDate())));
 //        return events;
-       // return eventRepository.findAll();
+        // return eventRepository.findAll();
 
-        return new ArrayList<>(eventRepository.findAll());
+        return eventRepository.findAllByOrderByPriorityAsc();
     }
-      public Event getEventById(Long eventId) {
-        return eventRepository.findById(eventId).orElse(null);
-    }
-    public void addEvent(Event event){
+
+//    public Event getEventById(Long eventId) {
+//        return eventRepository.findById(eventId).orElse(null);
+//    }
+
+    public void addEvent(Event event) {
         eventRepository.save(event);
+    }
+
+    public Optional<Event> getById(Long id) {
+        return eventRepository.findById(id);
     }
 
     public void updateEvent(Event updatedEvent) {
