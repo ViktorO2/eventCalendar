@@ -9,11 +9,11 @@
 <body>
 <nav th:replace="~{fragments/commons::navigation}"></nav>
 
-<div id="calendar" ></div>
+<div id="calendar"></div>
 
 <script th:inline="javascript">
     $(document).ready(function () {
-        var events = /*[[${eventsJson}]]*/ []; // You need to convert your events to JSON format
+        var events = /*[[${eventsJson}]]*/ [];
         $('#calendar').fullCalendar({
             events: events,
             header:{
@@ -23,7 +23,11 @@
             },
             defaultView: 'month',
             eventClick: function (calEvent, jsEvent, view) {
-                window.location.href = '/details/' + calEvent.id;
+                // Assuming calEvent has an 'id' property
+                var eventId = calEvent.id;
+
+                // Redirect to details page with the event ID
+                window.location.href = '/details?id=' + eventId;
             },
             eventRender: function (event, element) {
                 element.css('background-color', event.themeColor);
@@ -31,6 +35,8 @@
             }
         });
     });
+
+
 
 </script>
 </body>

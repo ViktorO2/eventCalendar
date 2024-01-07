@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/commons::head">
+    <link rel="stylesheet" href="style.css">
 </head>
 <header th:replace="fragments/commons::header"></header>
 <body>
 <nav th:replace="fragments/commons::navigation"></nav>
-
 <h2>Edit Event</h2>
 
 <form th:action="@{/edit}" th:object="${event}" method="post">
     <input type="hidden" th:field="*{id}"/>
     <label>Title: <input type="text" th:field="*{title}"/></label><br/>
     <label>Description: <input type="text" th:field="*{description}"/></label><br/>
-    <label>Due Date: <input type="date" th:field="*{dueDate}"
-                            value="${#temporals.format(event.dueDate, 'yyyy-MM-dd')}"/></label><br/>
+    <label>Due Date: <input type="date" th:field="*{dueDate}" value="${event.dueDate}"/></label><br/>
     <label>Priority: <input type="number" th:min="1" th:max="6" th:field="*{priority}"/></label><br/>
     <label>Color: <input type="color" value="#ffffff" th:field="*{themeColor}"></label>
     <input type="submit" value="Save Changes"/>

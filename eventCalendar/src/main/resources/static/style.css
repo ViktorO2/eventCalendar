@@ -169,42 +169,39 @@ table.event-list-table tr:hover {
     border-top: 1px solid #ddd;
     z-index: 1000; /* Настройте по-голяма стойност на z-index, за да бъде футърът най-отгоре */
 }
-a[href='/details/{id}'] {
 
+#details-container {
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-    /* Стилове за контейнера с детайлите на събитието */
+/* Style for individual details paragraphs */
+#details-container p {
+    margin-bottom: 10px;
+}
 
-    div.details-container {
-        width: 50%;
-        margin: 50px auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #f9f9f9;
-    }
+/* Style for the edit and delete buttons */
+#details-buttons {
+    max-width: 300px;
+    margin: 20px auto;
+}
 
-    /* Стилове за параграфите с информация за събитието */
+#details-buttons button {
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: rgba(252, 27, 27, 0.57);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-    div.details-container p {
-        margin-bottom: 10px;
-    }
-
-    /* Стилове за бутоните за редактиране и изтриване */
-
-    div.details-container a button {
-        margin-right: 10px;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 3px;
-        background-color: #4CAF50;
-        color: white;
-        cursor: pointer;
-        text-decoration: none;
-    }
-
-    /* Стилове за бутоните при хофване на мишката */
-
-    div.details-container a button:hover {
-        background-color: #45a049;
-    }
+#details-buttons button:hover {
+    background-color: #0056b3;
 }

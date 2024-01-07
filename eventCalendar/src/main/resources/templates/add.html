@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/commons::head}">
-</head>
+<head th:replace="~{fragments/commons::head}"></head>
 <header th:replace="~{fragments/commons::header}"></header>
 <body>
 <nav th:replace="~{fragments/commons::navigation}"></nav>
@@ -16,6 +15,7 @@
     <label>Priority: <input type="number" th:min="1" th:max="6" th:field="*{priority}"/></label><br/>
     <label>Color: <input type="color" value="#ffffff" th:field="*{themeColor}"></label><br/>
     <input type="submit" value="Add Event"/>
+    <p th:if="${customError}" style="color: red;">All fields must be filled</p>
 </form>
 
 </body>
